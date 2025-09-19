@@ -12,8 +12,6 @@ public class Apple : Item
     private Rigidbody _rigidbody;
     private Coroutine _timerCoroutine;
 
-    public bool InInventory { get; private set; } = false;
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -43,6 +41,7 @@ public class Apple : Item
     {
         OnAddedInInventory -= PickUpApple;
 
+        StopCoroutine(_timerCoroutine);
         _timerCoroutine = null;
         DisableApplePhysics();
     }

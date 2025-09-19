@@ -40,6 +40,8 @@ public class InventoryController : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
+        if (!item.InInventory) return;
+
         int index = _currentInventory.GetIndexOfItem(item);
         if (index == -1)
         {
